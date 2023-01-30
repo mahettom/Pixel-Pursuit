@@ -1,0 +1,17 @@
+
+
+.cells {
+    height: 1.225rem;
+    width: 1.225rem;
+    background-color: white;
+    border: .01rem solid lightgray;
+  }
+  
+  #playground {
+    display: grid;
+    width: 25rem;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+    border: 0.31rem solid black;
+    border-style: inset;
+  }
