@@ -1,6 +1,7 @@
 @import url(./grid.css);
 @import url(./food.css);
 @import url(./player.css);
+@import url(./enemy.css);
 
 * {
     margin: 0;
@@ -23,8 +24,4 @@
   #section-left {
     align-self: center;
     margin: auto;
-  }
-
-  .player {
-    background-color: brown;
   }

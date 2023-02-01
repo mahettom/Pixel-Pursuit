@@ -7,12 +7,17 @@ class Enemy {
         return Math.floor(Math.random() * 19);
     }
     displayEnemy() {
-        this.grid[this.currentPosition].classList.add('enemy');
+        if (this.grid[this.currentPosition]){
+            this.grid[this.currentPosition].classList.add('enemy');
+        }
     }
     hideEnemy() {
-        this.grid[this.currentPosition].classList.remove('enemy');
+        if (this.grid[this.currentPosition]){
+            this.grid[this.currentPosition].classList.remove('enemy');
+        }
     }
     move() {
+        // setInterval(, 200)
         this.hideEnemy()
         this.currentPosition += 20
         this.displayEnemy()

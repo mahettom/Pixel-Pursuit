@@ -14,8 +14,9 @@ class Game {
         this.points = 0;
         this.player = null;
         this.food = null;
-        this.ennemies = [];
+        this.enemies = [];
         this.init();
+        this.intervalId = null
     }
 
     init() {
@@ -93,10 +94,23 @@ class Game {
                 break;
         }
         if (this.player.currentPosition === this.food.currentPosition) {
+            // eat the food and recreate it at a random place
             this.food.eatFood()
-            new Enemy(this.grid)
+            // after that, create an enemy at the top
+
+            this.enemies.push(new Enemy(this.grid))
+            if (this.intervalId) return
+            this.startEnemies()
+            // and create a interval for the 'falling' effect
 
         }
+    }
+    startEnemies() {
+        this.intervalId = setInterval(() => {
+            this.enemies.forEach(enemy => {
+                enemy.move()
+            });
+        }, 200)
     }
 }
 
