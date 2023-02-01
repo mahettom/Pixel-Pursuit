@@ -1,14 +1,21 @@
 class Food {
-    constructor(currentPosition, grid){
-        this.currentPosition = currentPosition;
+    constructor(grid) {
         this.grid = grid;
+        this.currentPosition = this.getRandomIndex()
     }
-    displayFood(){
-        console.log(this.currentPosition);
+    getRandomIndex() {
+        return Math.floor(Math.random() * this.grid.length);
+    }
+    displayFood() {
         this.grid[this.currentPosition].classList.add('food');
     }
-    hideFood(){
+    hideFood() {
         this.grid[this.currentPosition].classList.remove('food');
+    }
+    eatFood() {
+        this.hideFood()
+        this.currentPosition = this.getRandomIndex()
+        this.displayFood()
     }
 }
 

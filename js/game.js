@@ -1,5 +1,6 @@
 import Player from "./player.js";
 import Food from "./food.js";
+import Enemy from "./enemy.js";
 
 let playground = document.querySelector('#playground');
 // const gameStart = document.querySelector('#start');
@@ -13,13 +14,15 @@ class Game {
         this.points = 0;
         this.player = null;
         this.food = null;
+        this.ennemies = [];
         this.init();
     }
+
     init() {
         this.gridPlayground()
         this.player = new Player(0, this.grid)
         this.player.displayPlayer()
-        this.food = new Food(Math.floor(Math.random() * this.grid.length), this.grid)
+        this.food = new Food(this.grid)
         this.food.displayFood()
         window.addEventListener('keydown', (event) => this.handleMovement(event))
     }
@@ -37,9 +40,11 @@ class Game {
         }
     }
 
-    eatPart() {
-        
-    }
+    // generateFood() {
+    //     for (let i = 0; i < 10; i++){
+    //         new Food(Math.floor(Math.random() * this.grid.length))
+    //     }
+    // }
 
     handleMovement(event) {
         // console.log(this)
@@ -49,9 +54,13 @@ class Game {
                 if (this.player.currentPosition % 20 === 0) {
                     return;
                 }
+                // if (this.player.currentPosition === this.foods.currentPosition) {
+                //     this.food.hideFood()
+                // }
                 this.player.hidePlayer();
                 this.player.currentPosition--;
                 this.player.displayPlayer();
+
                 break;
 
             case 'ArrowRight':
@@ -61,6 +70,7 @@ class Game {
                 this.player.hidePlayer();
                 this.player.currentPosition++;
                 this.player.displayPlayer();
+
                 break;
 
             case 'ArrowUp':
@@ -70,7 +80,8 @@ class Game {
                 this.player.hidePlayer();
                 this.player.currentPosition -= 20;
                 this.player.displayPlayer();
-                break
+
+                break;
 
             case 'ArrowDown':
                 if (this.player.currentPosition >= 380) {
@@ -79,14 +90,14 @@ class Game {
                 this.player.hidePlayer();
                 this.player.currentPosition += 20;
                 this.player.displayPlayer()
-                break
+                break;
         }
+        if (this.player.currentPosition === this.food.currentPosition) {
+            this.food.eatFood()
+            new Enemy(this.grid)
 
+        }
     }
-
-
-
 }
 
 const game1 = new Game()
-
