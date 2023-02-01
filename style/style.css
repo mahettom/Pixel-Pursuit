@@ -1,3 +1,7 @@
+@import url(./grid.css);
+@import url(./food.css);
+@import url(./player.css);
+
 * {
     margin: 0;
     padding: 0;
@@ -19,4 +23,8 @@
   #section-left {
     align-self: center;
     margin: auto;
+  }
+
+  .player {
+    background-color: brown;
   }

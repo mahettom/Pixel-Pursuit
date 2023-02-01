@@ -1,23 +1,16 @@
 class Player {
-    constructor (currentposition){
-        this.currentposition = 780;
+    constructor(currentPosition, grid) {
+        this.currentPosition = currentPosition;
+        this.grid = grid;
+        this.life = 3;
     }
 
-    displayPlayer(position){
-        grid[position].classList.add('player');
+    displayPlayer() {
+        this.grid[this.currentPosition].classList.add('player');
+    }
+    hidePlayer() {
+        this.grid[this.currentPosition].classList.remove('player');
     }
 }
 
-window.addEventListener('keydown', (event) => {
-        
-    switch (event.code) {
-        case 'ArrowLeft':
-            if (currentPosition % 20 === 0){
-                return
-            }
-    }
-})
-
-function hidePlayer(){
-    grid[this.currentPosition].classlist.remove('player');
-}
+export default Player
