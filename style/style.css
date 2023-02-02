@@ -13,9 +13,20 @@
     display: flex;
     flex-wrap: column;
     justify-content: center;
+    height: 37.5rem;
+    width: 37.5rem;
   }
 
+  body .before-button-click {
+    background-color: white;
+    height: 37.5rem;
+    width: 37.5rem;
+  }
+  
+
   #section-right {
+    justify-content: center;
+    align-content: center;
     align-self: center;
     justify-self: center;
     margin: auto;

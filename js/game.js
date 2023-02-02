@@ -2,21 +2,29 @@ import Player from "./player.js";
 import Food from "./food.js";
 import Enemy from "./enemy.js";
 
+// button and information related to the game
+const startGame = document.querySelector('#start');
+const score = document.querySelector('#score');
+const endGame = document.querySelector('#end-of-game');
+
+// other element of the body
 let playground = document.querySelector('#playground');
-// const gameStart = document.querySelector('#start');
-// const score = document.querySelector('#life');
+
 
 class Game {
     constructor(currentPosition) {
         this.column = 20;
         this.row = 20;
         this.grid = [];
-        this.points = 0;
         this.player = null;
         this.food = null;
         this.enemies = [];
         this.init();
-        this.intervalId = null
+        this.isGameOver = false;
+        this.timeOutID = null;
+        this.score = 0;
+        this.delay = 1000;
+        window.addEventListener('keydown',(e) => this.handleMovement(e))
     }
 
     init() {
@@ -25,7 +33,6 @@ class Game {
         this.player.displayPlayer()
         this.food = new Food(this.grid)
         this.food.displayFood()
-        window.addEventListener('keydown', (event) => this.handleMovement(event))
     }
 
     createCellForPlayground() {
@@ -41,23 +48,14 @@ class Game {
         }
     }
 
-    // generateFood() {
-    //     for (let i = 0; i < 10; i++){
-    //         new Food(Math.floor(Math.random() * this.grid.length))
-    //     }
-    // }
-
     handleMovement(event) {
-        // console.log(this)
-        // console.log(event)
+
         switch (event.code) {
             case 'ArrowLeft':
                 if (this.player.currentPosition % 20 === 0) {
                     return;
                 }
-                // if (this.player.currentPosition === this.foods.currentPosition) {
-                //     this.food.hideFood()
-                // }
+
                 this.player.hidePlayer();
                 this.player.currentPosition--;
                 this.player.displayPlayer();
@@ -93,24 +91,78 @@ class Game {
                 this.player.displayPlayer()
                 break;
         }
+
+        const isPlayerHittingEnemy = this.grid[this.player.currentPosition].classList.contains('enemy');
+        if (isPlayerHittingEnemy) {
+            this.gameOver('lose')
+        }
+
+        // logic to put in place when 1 objectif is reached
         if (this.player.currentPosition === this.food.currentPosition) {
-            // eat the food and recreate it at a random place
             this.food.eatFood()
-            // after that, create an enemy at the top
+            this.score++;
 
-            this.enemies.push(new Enemy(this.grid))
-            if (this.intervalId) return
-            this.startEnemies()
-            // and create a interval for the 'falling' effect
+            if (this.delay >= 215) {
+                this.delay -= 70;
+            }
+            if (this.score === 15) {
+                this.gameOver('win');
+            }
 
+
+            if (!this.timeOutID) {
+                this.startEnemies()
+            }
         }
     }
+
     startEnemies() {
-        this.intervalId = setInterval(() => {
+        this.timeOutID = setTimeout(() => {
+
+            this.enemies.push(new Enemy(this.grid))
+
             this.enemies.forEach(enemy => {
                 enemy.move()
+
+                if (enemy.checkCollision()) {
+                    this.gameOver('lose')
+
+                }
             });
-        }, 200)
+            if (!this.isGameOver) {
+                this.startEnemies();
+            }
+
+        }, this.delay);
+    }
+
+    gameOver(result) {
+        this.isGameOver = true;
+        let msg = "lose";
+
+        if (result === 'win') {
+            msg = "win"
+        }
+
+        endGame.querySelector('p').textContent = msg
+        endGame.show()
+
+        endGame.addEventListener('click', () => this.reset())
+    }
+
+    reset() {
+
+        endGame.close();
+        playground.innerHTML = '';
+        this.grid = [];
+        this.enemies = [];
+        this.player = null;
+        this.food = null;
+        this.isGameOver = false;
+        this.timeOutID = null;
+        this.score = 0;
+        this.delay = 1000;
+        this.init();
     }
 }
 

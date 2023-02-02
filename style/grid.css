@@ -9,6 +9,7 @@
   
   #playground {
     display: grid;
+    height: 25rem;
     width: 25rem;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr);

@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./style/style.css"/>
     <title>GAME</title>
   </head>
-  <body>
+  <body class="before-button-click">
     <section id="section-left">
         <h1>Life: <span id="life">0</span></h1>
+        <h1>Score: <span id="score">0</span></h1>
+
     </section>
 
     <section id="playground"></section>
@@ -18,8 +20,8 @@
         <button id="start">Bring it !</button>
     </section>
 
-    <dialog id="dialog">
-      <p>You won!</p>
+    <dialog id="end-of-game">
+      <p>You lose!</p>
       <button>reset</button>
     </dialog>
 

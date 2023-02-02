@@ -7,20 +7,25 @@ class Enemy {
         return Math.floor(Math.random() * 19);
     }
     displayEnemy() {
-        if (this.grid[this.currentPosition]){
+        if (this.grid[this.currentPosition]) {
             this.grid[this.currentPosition].classList.add('enemy');
         }
     }
     hideEnemy() {
-        if (this.grid[this.currentPosition]){
+        if (this.grid[this.currentPosition]) {
             this.grid[this.currentPosition].classList.remove('enemy');
         }
     }
     move() {
-        // setInterval(, 200)
         this.hideEnemy()
         this.currentPosition += 20
         this.displayEnemy()
+    }
+
+    checkCollision() {
+        if (this.grid[this.currentPosition].classList.contains('player')) {
+            return true;
+        }
     }
 }
 
