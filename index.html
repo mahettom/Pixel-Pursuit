@@ -4,25 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/main.css"/>
     <title>GAME</title>
   </head>
-  <body class="before-button-click">
-    <section id="section-left">
-        <h1>Life: <span id="life">0</span></h1>
-        <h1>Score: <span id="score">0</span></h1>
-
-    </section>
+  <body>
 
     <section id="playground"></section>
 
-    <section id="section-right">
-        <button id="start">Bring it !</button>
+    <section id="section-score">
+      <h1 id="score">0</h1>
+    </section>
+
+
+    <section class="bring-it-div">
+        <button class="bring-it-button">Bring it !</button>
     </section>
 
     <dialog id="end-of-game">
-      <p>You lose!</p>
-      <button>reset</button>
+      <div>
+        <p>You lose!</p>
+        <button class="reset-button">reset</button>
+      </div>
     </dialog>
 
     <script type="module" src="./js/player.js"></script>

@@ -4,7 +4,7 @@ class Enemy {
         this.currentPosition = this.getRandomIndex()
     }
     getRandomIndex() {
-        return Math.floor(Math.random() * 19);
+        return Math.floor(Math.random() * 20);
     }
     displayEnemy() {
         if (this.grid[this.currentPosition]) {
@@ -23,6 +23,7 @@ class Enemy {
     }
 
     checkCollision() {
+        if (this.currentPosition >= 380) return
         if (this.grid[this.currentPosition].classList.contains('player')) {
             return true;
         }

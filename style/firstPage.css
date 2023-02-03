@@ -1,0 +1,38 @@
+/* 
+this page : 
+    - appear when the page load
+    - close after button click 
+*/
+
+.bring-it-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
+  .bring-it-button {
+    height: 10rem;
+    width: 25rem;
+    background-color: rgb(250, 250, 250);
+    font-size: 2rem;
+    font-weight: 500;
+    border: .5rem solid rgb(30, 30, 30);
+    border-radius: .5rem;
+    border-style: outset;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .bring-it-button:hover {
+    cursor: pointer;
+  }
+
+  

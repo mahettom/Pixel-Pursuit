@@ -1,0 +1,71 @@
+@import url(./grid.css);
+@import url(./food.css);
+@import url(./player.css);
+@import url(./enemy.css);
+@import url(./firstPage.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+  }
+
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  #score {
+    font-size: 7rem;
+  }
+
+
+  #section-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  dialog {
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  
+  dialog div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .reset-button {
+    height: 10rem;
+    width: 25rem;
+    background-color: rgb(250, 250, 250);
+    font-size: 3rem;
+    font-weight: 500;
+    border: .5rem solid rgb(30, 30, 30);
+    border-radius: .5rem;
+    border-style: outset;
+  }
+
+  .reset-button:hover {
+    cursor: pointer;
+  }
+
+  dialog div p {
+    font-family: 'VT323', monospace;
+    font-size: 8rem;
+  }
