@@ -125,7 +125,7 @@ class Game {
 
             // }
             
-            if (this.score === 18) {
+            if (this.score === 20) {
                 this.gameOver('win');
             }
 
@@ -171,8 +171,7 @@ class Game {
 
     reset() {
 
-        // endGame.classList.remove('reset-button')
-        // endGame.classList.add('hidden')
+        
         startGame.classList.remove('hidden')
         endGame.close();
         playground.innerHTML = '';
