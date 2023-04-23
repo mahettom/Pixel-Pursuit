@@ -1,1 +1,1 @@
-# game-project
+# Pixel Pursuit
