@@ -1,5 +1,5 @@
 # Pixel Pursuit
-### JavaScript
+
 
 ## Description
 
@@ -15,4 +15,4 @@ And he should have logic for winning and/or losing and show feedback to the play
 
 
 
-Tech : ==JavaScript==
+Tech : JavaScript
