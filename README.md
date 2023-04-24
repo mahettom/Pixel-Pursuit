@@ -1,12 +1,13 @@
 # Pixel Pursuit
 
+Project 1 of Ironhack, Week 3
+
 
 ## Description
 
-Project 1  :  Week 3
-
 For the first project, we needed to render a game in the browser.
 And he should have logic for winning and/or losing and show feedback to the player in either case.
+
 
 ## Challenge
 
