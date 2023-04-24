@@ -1,5 +1,5 @@
 # Pixel Pursuit
-## ==JavaScript==
+### JavaScript
 
 ## Description
 
