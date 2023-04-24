@@ -2,7 +2,7 @@
 
 Project 1 of Ironhack, Week 3 !
 
-Github page is available feel free to try it !
+> Github page is available feel free to try it !
 
 
 ## Description
